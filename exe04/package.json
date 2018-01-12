@@ -1,0 +1,16 @@
+{
+  "name": "exe04",
+  "version": "0.0.1",
+  "description": "my first web server for my students",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "server",
+    "http"
+  ],
+  "author": "TCDP",
+  "license": "MIT"
+}
