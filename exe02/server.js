@@ -14,6 +14,13 @@ const checkActions = (action) => {
     // return returnValue
     return possibleActions.filter(item => item === action).length > 0
 }
+// function checkValue(value){
+//     let returnValue = false
+//     if(value !== null || value !== undefined || value !== 0 || value !== NaN){
+//         returnValue = true
+//     }
+//     return returnValue
+// }
 const checkValue = (value) => (value) ? true : false
 
 const init = () => {

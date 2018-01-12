@@ -10,13 +10,27 @@ module.exports = {
         })
     }
 }
-
 const add = (value, file) => {
-    values.push(value)
-    save(file)
+    if(!checkValueInlist(value)){
+        values.push(value)
+        save(file)
+    } else{
+        console.log('this element is allready in our file')
+    }
+    
 }
 const remove = (value, file) => {
-    //
+    if(checkValueInlist(value)){
+        values.splice(values.findIndex(item =>item ===value),1)
+        save(file)
+    } else {
+        console.log('the value doesn\'t exist in our actual file')
+    }
+    
+}
+
+const checkValueInlist = (value) =>{
+    return values.filter(item=>item===value).length >0
 }
 const save = (file) => {
     let tempStr = values.reduce((prev, current) => {
