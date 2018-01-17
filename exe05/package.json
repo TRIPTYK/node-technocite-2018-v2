@@ -1,0 +1,19 @@
+{
+  "name": "exe05",
+  "version": "0.0.1",
+  "description": "Promises vs callbacks",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "promises",
+    "JS",
+    "nodejs"
+  ],
+  "author": "TCDP",
+  "license": "MIT",
+  "dependencies": {
+    "es6-promisify": "^5.0.0"
+  }
+}

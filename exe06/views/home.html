@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste de mes livres</title>
+</head>
+
+<body>
+    <h1>Ma liste de livre</h1>
+    <ul id="liste">
+    </ul>
+    <form id="book-form">
+        <label for="title">Titre</label>
+        <input type="text" name="title" id="title">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author">
+        <input type="submit" value="Sauvegarder">
+    </form>
+    <script>
+        document.getElementById('book-form').addEventListener('submit', function(e){
+            e.preventDefault();
+            let form = new FormData(document.getElementById('book-form'))
+            console.log(form)
+            let object = {};
+            form.forEach((value,key) =>{
+                object[key]=value;
+            })
+            var json = JSON.stringify(object);
+            fetch('api/books',{
+                headers: {
+                    'Accept':'application/json',
+                    'Content-Type':'application/json'
+                },
+                method:'POST',
+                body:json
+            }).then(response => {
+                response.json().then(data => {
+
+                    let listeStr = data.reduce((prev,current)=>{
+                        return `${prev}\n
+                        <li><b>Titre</b>:${current.title} ==> <b>Auteur</b>:${current.author}</li>`
+                    }, '')
+                    document.getElementById('liste').innerHTML=listeStr;
+                })
+            }).catch(e => {
+                console.log(e)
+            })
+        })
+        fetch('/api/books')
+            .then(response => {
+                response.json().then(data => {
+
+                    let listeStr = data.reduce((prev,current)=>{
+                        return `${prev}\n
+                        <li><b>Titre</b>:${current.title} ==> <b>Auteur</b>:${current.author}</li>`
+                    }, '')
+                    document.getElementById('liste').innerHTML=listeStr;
+                })
+            }).catch(e => {
+                console.log(e)
+            })
+    </script>
+</body>
+
+</html>
