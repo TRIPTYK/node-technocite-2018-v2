@@ -1,0 +1,19 @@
+{
+  "name": "exe08",
+  "version": "0.0.1",
+  "description": "big exercice",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "exercice"
+  ],
+  "author": "TCDP",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-hbs": "^1.0.4"
+  }
+}

@@ -23,14 +23,13 @@ module.exports = (req, res) => {
                     let tempArr = JSON.parse(data)
                     let jsonObject = JSON.parse(formData)
                     tempArr.push(jsonObject)
+                    
                     write(`${process.cwd()}/models/books.json`,JSON.stringify(tempArr))
                         .then(() => {
                             console.log(tempArr)
                             res.end(JSON.stringify(tempArr))
                         })
                 }).catch(e=>{console.log(e)})
-
         })
     }
-
 }
