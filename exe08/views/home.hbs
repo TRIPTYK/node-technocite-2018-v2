@@ -1,2 +1,10 @@
-<h1>Thi is my home page chouette</h1>
-<h2>{{test}}</h2>
+<h1 class="title">Magasins</h1>
+<div class="stores">
+    {{#each magasins as |magasin|}}
+    <div class="store store__hero">  
+      <a href="/magasins/{{magasin.slug}}">
+       <h2 class="title">{{magasin.name}}</h2>
+      </a>
+    </div>
+    {{/each}}
+</div>
