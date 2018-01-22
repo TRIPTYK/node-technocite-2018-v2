@@ -5,7 +5,11 @@ const magasinsController = require(`${process.cwd()}/controllers/magasinsControl
 router.get('/', pagesController.home)
 router.get('/magasins/add', magasinsController.addMagasin)
 router.get('/magasins/:slug', magasinsController.getMagasinBySlug)
-router.post('/magasins/add', magasinsController.createMagasin)
+
+router.post('/magasins/add', 
+    magasinsController.upload,
+    magasinsController.resize,
+    magasinsController.createMagasin)
 router.get('/about', pagesController.about)
 
 module.exports = router

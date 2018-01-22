@@ -1,5 +1,5 @@
 <h2>Add Magasin</h2>
-<form action="/magasins/add" class="card" method="POST">
+<form action="/magasins/add" class="card" method="POST" enctype="multipart/form-data">
     <label for="name">
         Name :
         <input type="text" name="name" id="name" value="{{magasin.name}}">
@@ -11,6 +11,7 @@
      <label for="photo">
         Photo :
         <input type="file" name="photo" id="photo" accept="image/gif, image/png,image/jpeg" value="{{magasin.photo}}">
+        
     </label>
     <label for="description">
         Description :

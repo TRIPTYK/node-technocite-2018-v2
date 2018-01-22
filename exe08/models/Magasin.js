@@ -10,6 +10,9 @@ const schema =new mongoose.Schema({
     },
     description:{
         type:String
+    },
+    photo :{
+        type : String
     }
 })
 module.exports = mongoose.model('Magasin',schema)
