@@ -4,7 +4,7 @@ const multer = require('multer')
 const jimp = require('jimp')
 const uuid = require('uuid')
 exports.addMagasin=(req,res)=>{
-    res.render('magasin_edit',{magasin:{}})
+    res.render('magasin_edit',{"magasin":{}})
 }
 
 exports.createMagasin=async(req,res)=>{
@@ -14,7 +14,17 @@ exports.createMagasin=async(req,res)=>{
 
 exports.getMagasinBySlug = async (req,res) =>{
     const magasin = await Magasin.findOne({slug : req.params.slug})
-    res.render('magasin_details',{magasin:magasin})
+    res.render('magasin_details',{"magasin":magasin})
+}
+
+exports.editMagasin = async (req,res) => {
+    const magasin = await Magasin.findOne({_id:req.params.id})
+    if(!magasin) return next()
+    res.render('magasin_edit',{"magasin":magasin})
+}
+exports.updateMagasin = async (req,res) => {
+    const magasin = await Magasin.findByIdAndUpdate({_id : req.params.id},req.body,{new:true}).exec()
+    res.redirect(`/magasins/${magasin.slug}`)
 }
 
 const multerOptions = {
