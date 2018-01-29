@@ -17,6 +17,7 @@ mongoose.connect(process.env.DB_HOST,(err) =>{
 
 //import all models
 require(`${process.cwd()}/models/Magasin`)
+require(`${process.cwd()}/models/User`)
 
 //Start our app if everything is allright zand initialized
 

@@ -1,4 +1,5 @@
 <h1 class="title">Magasins</h1>
+
 <div class="stores">
     {{#each magasins as |magasin|}}
     <div class="store store__hero">  
@@ -9,3 +10,6 @@
     </div>
     {{/each}}
 </div>
+{{#if isAuthenticated}}
+  Logged : {{user}}
+{{/if}}
